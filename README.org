@@ -59,3 +59,25 @@
 (f 15 10 5) ;; => 325
 (f 15 5 10) ;; => 325
 #+end_src
+
+** 1.4
+Machen Sie sich klar, dass unser Auswertungsmodell Kombinationen zulässt, deren
+Operatoren zusammengesetzte Ausdrücke sind. Nutzen Sie diese Erkenntnis um das
+Verhalten der folgenden Prozedur zu beschreiben.
+#+begin_src clojure
+(defn a-plus-abs-b [a b]
+  (if (> b 0) + -) a b)
+#+end_src
+
+a + |b|
+
+** 1.5
+Ben Bitdiddle hat eine Möglichkeit gefunden, zu überprüfen, ob der Interpretierer, mit dem er zu tun hat, in applikativer Reihenfolge auswertet oder in normaler Reihenfolge. Er definiert die folgenden beiden Prozeduren:
+#+begin_src clojure
+(defn p [p])
+(defn test [x y]
+  (if (= x 0) 0 y))
+// Dann wertet er folgenden Ausdruck aus:
+(test 0 (p))
+
+#+end_src
