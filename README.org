@@ -63,14 +63,26 @@
 ** 1.4
 Machen Sie sich klar, dass unser Auswertungsmodell Kombinationen zulässt, deren
 Operatoren zusammengesetzte Ausdrücke sind. Nutzen Sie diese Erkenntnis um das
-Verhalten der folgenden Prozedur zu beschreiben.
+
+Verhalten der folgenden Prozedur zu beschreiben:
+
 #+begin_src clojure
 (defn a-plus-abs-b [a b]
-  (if (> b 0) + -) a b)
+  ((if ( > b 0) + -) a b)
+)
+
+(a-plus-abs-b 3 -6)
+(a-plus-abs-b 3 6)
+
 #+end_src
 
-a + |b|
+#+RESULTS:
+| #'sicp-clojure.core/a-plus-abs-b |
+|                                9 |
+|                                9 |
 
+(a + |b|)
+A plus absoluten Wert von  b.
 ** 1.5
 Ben Bitdiddle hat eine Möglichkeit gefunden, zu überprüfen, ob der Interpretierer, mit dem er zu tun hat, in applikativer Reihenfolge auswertet oder in normaler Reihenfolge. Er definiert die folgenden beiden Prozeduren:
 #+begin_src clojure
