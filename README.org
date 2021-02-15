@@ -1,10 +1,8 @@
 #+TITLE: Struktur und Interpretation von Computerprogrammen Arbeitsblatt
 
 [[https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/index.htm][MiT SICP Online Course]]
-[[http://community.schemewiki.org/?SICP-Solutions][
-SICP Solutions]]
-[[https://www.youtube.com/playlist?list=PLVFrD1dmDdvdvWFK8brOVNL7bKHpE-9w0][
-Code Report SICP Work Through]]
+[[http://community.schemewiki.org/?SICP-Solutions][SICP Solutions]]
+[[https://www.youtube.com/playlist?list=PLVFrD1dmDdvdvWFK8brOVNL7bKHpE-9w0][Code Report SICP Work Through]]
 
 
 * Übungen
@@ -65,6 +63,7 @@ Code Report SICP Work Through]]
 ** 1.4
 Machen Sie sich klar, dass unser Auswertungsmodell Kombinationen zulässt, deren
 Operatoren zusammengesetzte Ausdrücke sind. Nutzen Sie diese Erkenntnis um das
+
 Verhalten der folgenden Prozedur zu beschreiben:
 
 #+begin_src clojure
@@ -85,3 +84,12 @@ Verhalten der folgenden Prozedur zu beschreiben:
 (a + |b|)
 A plus absoluten Wert von  b.
 ** 1.5
+Ben Bitdiddle hat eine Möglichkeit gefunden, zu überprüfen, ob der Interpretierer, mit dem er zu tun hat, in applikativer Reihenfolge auswertet oder in normaler Reihenfolge. Er definiert die folgenden beiden Prozeduren:
+#+begin_src clojure
+(defn p [p])
+(defn test [x y]
+  (if (= x 0) 0 y))
+// Dann wertet er folgenden Ausdruck aus:
+(test 0 (p))
+
+#+end_src
