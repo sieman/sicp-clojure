@@ -1,8 +1,10 @@
 #+TITLE: Struktur und Interpretation von Computerprogrammen Arbeitsblatt
 
 [[https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/index.htm][MiT SICP Online Course]]
-[[http://community.schemewiki.org/?SICP-Solutions][SICP Solutions]]
-[[https://www.youtube.com/playlist?list=PLVFrD1dmDdvdvWFK8brOVNL7bKHpE-9w0][Code Report SICP Work Through]]
+[[http://community.schemewiki.org/?SICP-Solutions][
+SICP Solutions]]
+[[https://www.youtube.com/playlist?list=PLVFrD1dmDdvdvWFK8brOVNL7bKHpE-9w0][
+Code Report SICP Work Through]]
 
 
 * Übungen
@@ -59,3 +61,27 @@
 (f 15 10 5) ;; => 325
 (f 15 5 10) ;; => 325
 #+end_src
+
+** 1.4
+Machen Sie sich klar, dass unser Auswertungsmodell Kombinationen zulässt, deren
+Operatoren zusammengesetzte Ausdrücke sind. Nutzen Sie diese Erkenntnis um das
+Verhalten der folgenden Prozedur zu beschreiben:
+
+#+begin_src clojure
+(defn a-plus-abs-b [a b]
+  ((if ( > b 0) + -) a b)
+)
+
+(a-plus-abs-b 3 -6)
+(a-plus-abs-b 3 6)
+
+#+end_src
+
+#+RESULTS:
+| #'sicp-clojure.core/a-plus-abs-b |
+|                                9 |
+|                                9 |
+
+(a + |b|)
+A plus absoluten Wert von  b.
+** 1.5
